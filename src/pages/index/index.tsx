@@ -34,40 +34,7 @@ export default function Index() {
     Taro.navigateTo({ url: `/pages/survey/index?uid=${s.uid}&title=${encodeURIComponent(s.title)}` })
   }
 
-  // 扫码进入测评
-  const handleScan = () => {
-    Taro.scanCode({
-      onlyFromCamera: false,
-      success: (res) => {
-        const text = res.result || ''
-        const match = text.match(/(?:survey\/|uid=)(ASM-[A-Z0-9]+)/i) || text.match(/(ASM-[A-Z0-9]+)/i)
-        if (match) {
-          Taro.navigateTo({ url: `/pages/survey/index?uid=${match[1]}` })
-        } else {
-          Taro.showToast({ title: '未识别到有效测评', icon: 'none' })
-        }
-      },
-    })
-  }
-
-  // 手动输入测评码
-  const handleManualInput = () => {
-    (Taro.showModal as any)({
-      title: '输入测评码',
-      editable: true,
-      placeholderText: '例：ASM-XXXXXXXX',
-      success: (res: any) => {
-        if (res.confirm && res.content) {
-          const uid = res.content.trim().toUpperCase()
-          if (uid) {
-            Taro.navigateTo({ url: `/pages/survey/index?uid=${uid}` })
-          }
-        }
-      },
-    })
-  }
-
-  const pendingList = surveys.filter(s => s.status === 'active')
+  const pendingList = surveys.filter(s => !s.status || s.status === 'active')
   const doneList = surveys.filter(s => s.status === 'closed')
 
   // Large title -> compact title transition
@@ -114,32 +81,6 @@ export default function Index() {
             <View className='summary__item'>
               <Text className='summary__num'>{surveys.length}</Text>
               <Text className='summary__label'>累计</Text>
-            </View>
-          </View>
-
-          {/* 入口 */}
-          <View className='section'>
-            <View className='list'>
-              <View className='row row--divider' onClick={handleScan}>
-                <View className='row__icon row__icon--blue'>
-                  <View className='row__icon-glyph row__icon-glyph--doc' />
-                </View>
-                <View className='row__main'>
-                  <Text className='row__title'>扫码参与测评</Text>
-                  <Text className='row__sub'>扫描辅导员分享的测评二维码</Text>
-                </View>
-                <Text className='row__chevron'>›</Text>
-              </View>
-              <View className='row' onClick={handleManualInput}>
-                <View className='row__icon row__icon--blue'>
-                  <View className='row__icon-glyph row__icon-glyph--doc' />
-                </View>
-                <View className='row__main'>
-                  <Text className='row__title'>输入测评码</Text>
-                  <Text className='row__sub'>手动输入测评码参与测评</Text>
-                </View>
-                <Text className='row__chevron'>›</Text>
-              </View>
             </View>
           </View>
 
