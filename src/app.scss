@@ -1,8 +1,15 @@
 page {
-  background: #fafaf9;
+  background: #f1f1f1;
   font-family: -apple-system, 'PingFang SC', 'Helvetica Neue', sans-serif;
   color: #1a1a1a;
   box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+}
+
+view, text, image, button, input, textarea, scroll-view {
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .primary { color: #f59e0b; }
