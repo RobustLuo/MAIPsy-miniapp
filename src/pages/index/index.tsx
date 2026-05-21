@@ -30,12 +30,12 @@ export default function Index() {
   const handleScroll = (e: any) => setScrollTop(e.detail.scrollTop)
 
   const handleEnter = (s: AssignedSurvey) => {
-    if (s.status === 'closed') return Taro.showToast({ title: '该测评已关闭', icon: 'none' })
     Taro.navigateTo({ url: `/pages/survey/index?uid=${s.uid}&title=${encodeURIComponent(s.title)}` })
   }
 
-  const pendingList = surveys.filter(s => !s.status || s.status === 'active')
-  const doneList = surveys.filter(s => s.status === 'closed')
+  // /active 接口返回的全部是进行中的测评
+  const pendingList = surveys
+  const doneList: AssignedSurvey[] = []
 
   // Large title -> compact title transition
   const titleProgress = Math.min(scrollTop / 60, 1)

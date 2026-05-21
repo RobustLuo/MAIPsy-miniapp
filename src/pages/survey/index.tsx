@@ -51,7 +51,7 @@ export default function Survey() {
   }
 
   const answeredCount = Object.keys(answers).length
-  const totalCount = survey?.questions.length ?? 0
+  const totalCount = survey ? survey.questions.length : 0
   const progress = totalCount > 0 ? (answeredCount / totalCount) * 100 : 0
   const allAnswered = answeredCount === totalCount && totalCount > 0
 
@@ -80,7 +80,7 @@ export default function Survey() {
       } else {
         Taro.showToast({ title: res.msg || '提交失败', icon: 'none' })
       }
-    } catch {
+    } catch (err) {
       Taro.showToast({ title: '网络错误，请重试', icon: 'none' })
     }
     setSubmitting(false)
