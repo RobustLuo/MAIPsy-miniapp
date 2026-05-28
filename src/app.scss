@@ -1,16 +1,10 @@
+/* 全局样式 */
+@import './styles/theme.scss';
+
 page {
-  background: #f1f1f1;
-  font-family: -apple-system, 'PingFang SC', 'Helvetica Neue', sans-serif;
-  color: #1a1a1a;
-  box-sizing: border-box;
-  width: 100%;
+  background: linear-gradient(180deg, $bg-grad-start 0%, $bg-grad-end 100%);
+  color: $text-body;
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif;
+  font-size: 28rpx;
   min-height: 100vh;
 }
-
-view, text, image, button, input, textarea, scroll-view {
-  box-sizing: border-box;
-  max-width: 100%;
-}
-
-.primary { color: #f59e0b; }
-.muted { color: #9ca3af; }

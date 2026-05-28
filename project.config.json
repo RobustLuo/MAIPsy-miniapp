@@ -1,15 +1,16 @@
 {
   "miniprogramRoot": "dist/",
-  "projectname": "MAIPsy-miniapp",
-  "description": "MaiPsy",
-  "appid": "wx6a9245767b5878ec",
+  "projectname": "maipsy",
+  "description": "MAIPsy 心理测评",
+  "appid": "wx9f612709d191bec5",
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "es6": false,
     "enhance": false,
     "compileHotReLoad": false,
     "postcss": false,
-    "minified": false,
+    "minified": true,
+    "newFeature": false,
     "compileWorklet": false,
     "uglifyFileName": false,
     "uploadWithSourceMap": true,
@@ -30,10 +31,13 @@
     }
   },
   "compileType": "miniprogram",
+  "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
+  "condition": {},
   "packOptions": {
     "ignore": [],
     "include": []
   },
-  "editorSetting": {}
+  "editorSetting": {},
+  "libVersion": "3.16.0"
 }

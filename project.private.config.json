@@ -1,6 +1,7 @@
 {
   "libVersion": "3.16.0",
   "projectname": "MAIPsy-miniapp",
+  "condition": {},
   "setting": {
     "urlCheck": false,
     "coverView": false,

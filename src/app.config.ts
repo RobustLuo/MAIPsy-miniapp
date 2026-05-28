@@ -1,13 +1,14 @@
 export default defineAppConfig({
   pages: [
-    'pages/index/index',
-    'pages/survey/index',
-    'pages/result/index'
+    'pages/login/index',
+    'pages/student/home/index',
+    'pages/counselor/home/index',
   ],
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#ffffff',
     navigationBarTitleText: 'MAIPsy',
-    navigationBarTextStyle: 'black'
-  }
+    navigationBarTextStyle: 'black',
+    backgroundColor: '#f7f7f9',
+  },
 })

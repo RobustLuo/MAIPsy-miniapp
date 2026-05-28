@@ -1,0 +1,118 @@
+/* ==================== MAIPsy 全局主题 ==================== */
+
+/* 主色 - 柔蜜桃（统一色调，柔和不刺眼） */
+$color-mint: #E89070;       // 主色 蜜桃珊瑚（变量名保留以兼容旧代码）
+$color-sky: #F5BFA0;        // 浅蜜桃
+$color-pink: #FFE0CC;       // 奶桃粉
+$color-lavender: #FFEEE2;   // 雾桃
+
+/* 主色别名（语义化） */
+$color-primary: #E89070;
+$color-primary-deep: #D67257;
+$color-primary-light: #F5BFA0;
+$color-accent: #FFE0CC;
+
+/* 渐变背景 - 暖蜜桃白 */
+$bg-grad-start: #FFF6EF;    // 顶部奶白
+$bg-grad-end: #FFE9DC;      // 底部浅蜜桃
+
+/* 状态色 */
+$status-normal: #7BAE7F;    // 安心绿
+$status-attention: #D89B45; // 关注金橙
+$status-warning: #C75450;   // 预警朱红
+
+/* 文字 */
+$text-title: #1A1A2E;
+$text-body: #2D3436;
+$text-muted: rgba(0, 0, 0, 0.35);
+
+/* 卡片 */
+$card-glass: rgba(255, 255, 255, 0.8);
+$card-glass-strong: rgba(255, 255, 255, 0.9);
+
+/* 阴影 */
+$shadow-card: 0 8rpx 32rpx rgba(232, 144, 112, 0.12);
+$shadow-card-hover: 0 16rpx 48rpx rgba(232, 144, 112, 0.22);
+$shadow-btn: 0 8rpx 30rpx rgba(232, 144, 112, 0.4);
+
+/* 弹性曲线 */
+$bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+/* 渐变工具类 */
+.grad-mint-blue {
+  background: linear-gradient(135deg, $color-mint 0%, $color-sky 100%);
+}
+
+.grad-bg {
+  background: linear-gradient(180deg, $bg-grad-start 0%, $bg-grad-end 100%);
+}
+
+.glass {
+  background: $card-glass;
+  backdrop-filter: blur(20rpx);
+  -webkit-backdrop-filter: blur(20rpx);
+}
+
+/* 全局动画 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-30rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(232, 144, 112, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 16rpx rgba(232, 144, 112, 0);
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* 入场动画工具类 */
+.anim-fade-up {
+  animation: fadeInUp 500ms $bounce both;
+}
+.anim-scale-in {
+  animation: scaleIn 500ms $bounce both;
+}
+.anim-slide-right {
+  animation: slideInRight 500ms $bounce both;
+}
+.stagger-1 { animation-delay: 60ms; }
+.stagger-2 { animation-delay: 120ms; }
+.stagger-3 { animation-delay: 180ms; }
+.stagger-4 { animation-delay: 240ms; }
+.stagger-5 { animation-delay: 300ms; }
+.stagger-6 { animation-delay: 360ms; }

@@ -1,0 +1,186 @@
+@import '../../styles/theme.scss';
+
+page {
+  background: #FFFCF8;
+}
+
+.login {
+  position: relative;
+  min-height: 100vh;
+  padding: 100rpx 56rpx 80rpx;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+
+  /* ============ 顶部品牌 ============ */
+  &__hero {
+    margin-bottom: 96rpx;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 14rpx;
+    margin-bottom: 80rpx;
+  }
+  &__brand-mark {
+    width: 44rpx;
+    height: 44rpx;
+    border-radius: 14rpx;
+    background: $color-primary;
+    /* 内部小圆点：极简标识 */
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 14rpx;
+      height: 14rpx;
+      border-radius: 50%;
+      background: #fff;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  &__brand-name {
+    font-size: 30rpx;
+    font-weight: 700;
+    color: $text-title;
+    letter-spacing: 2rpx;
+  }
+
+  &__title {
+    display: block;
+    font-size: 88rpx;
+    font-weight: 800;
+    color: $text-title;
+    letter-spacing: -2rpx;
+    line-height: 1.05;
+    margin-bottom: 24rpx;
+  }
+
+  &__subtitle {
+    display: block;
+    font-size: 28rpx;
+    color: rgba(0, 0, 0, 0.45);
+    line-height: 1.6;
+  }
+
+  /* ============ 角色切换 ============ */
+  &__tabs {
+    position: relative;
+    display: flex;
+    background: #F4EFE8;
+    border-radius: 999rpx;
+    padding: 6rpx;
+    margin-bottom: 56rpx;
+  }
+
+  &__tabs-indicator {
+    position: absolute;
+    top: 6rpx;
+    bottom: 6rpx;
+    left: 6rpx;
+    width: calc(50% - 6rpx);
+    border-radius: 999rpx;
+    background: $text-title;
+    transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 0;
+
+    &.is-right {
+      transform: translateX(100%);
+    }
+  }
+
+  &__tab {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    text-align: center;
+    padding: 22rpx 0;
+    font-size: 28rpx;
+    color: rgba(0, 0, 0, 0.55);
+    transition: color 250ms ease;
+    font-weight: 500;
+  }
+
+  &__tab.is-active {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  /* ============ 表单 ============ */
+  &__form {
+    flex: 1;
+  }
+
+  &__field {
+    margin-bottom: 24rpx;
+    background: #fff;
+    border: 2rpx solid #EFE9DF;
+    border-radius: 24rpx;
+    padding: 24rpx 32rpx;
+    transition: border-color 200ms ease;
+
+    &:focus-within {
+      border-color: $color-primary;
+    }
+  }
+  &__field-1, &__field-2 { /* 占位，移除动画类 */ }
+
+  &__label {
+    display: block;
+    font-size: 22rpx;
+    color: rgba(0, 0, 0, 0.4);
+    font-weight: 500;
+    margin-bottom: 6rpx;
+    letter-spacing: 0.5rpx;
+  }
+
+  &__input {
+    width: 100%;
+    box-sizing: border-box;
+    background: transparent;
+    border: none;
+    padding: 4rpx 0;
+    font-size: 32rpx;
+    font-weight: 500;
+    color: $text-title;
+    letter-spacing: -0.3rpx;
+  }
+
+  &__submit {
+    margin-top: 56rpx;
+    width: 100%;
+    height: 104rpx;
+    line-height: 104rpx;
+    background: $text-title;
+    color: #fff;
+    font-size: 30rpx;
+    font-weight: 600;
+    letter-spacing: 4rpx;
+    border-radius: 28rpx;
+    border: none;
+    transition: opacity 200ms ease, transform 200ms ease;
+
+    &::after { border: none; }
+
+    &:active {
+      opacity: 0.85;
+      transform: scale(0.99);
+    }
+  }
+
+  &__submit[disabled] {
+    opacity: 0.4;
+  }
+
+  &__footer {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.3);
+    font-size: 22rpx;
+    padding-top: 64rpx;
+    letter-spacing: 0.5rpx;
+  }
+}
